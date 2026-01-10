@@ -1,0 +1,27 @@
+/*-- scss:defaults --*/
+
+/*-- scs:rules --*/
+
+.q {
+  float: left;
+  border: 4px solid black;
+  margin: 0 1rem 0 0;
+  padding: 0 0.5rem;
+  font-weight: bold;
+}
+
+.commentary {
+  border: 4px solid blue;
+  margin: 0 0 0 1rem;
+  padding: 0 0.5rem;
+}
+
+.reveal .slides section .fragment.answer {
+  opacity: unset;
+  visibility: unset;
+}
+
+.reveal .slides section .fragment.answer.visible {
+  border: 4px solid red;
+  padding: 0 0.5rem;
+}
