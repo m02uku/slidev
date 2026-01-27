@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Reveal CDN Slide</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@latest/dist/reset.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@latest/dist/reveal.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@latest/dist/theme/white.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/highlight/monokai.css"/>
+    <link rel="stylesheet" href="./style.css"/>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section>
+          <h1>国試対策＜言語学<span class="circled">3</span>＞</h1>
+          <p>統語論／言語類型論</p>
+        </section>
+
+        <section>
+          <h2>キーワード</h2>
+          <div class="cols">
+            <ul class="col">
+              <li>統語論</li>
+              <ul>
+                <li>樹構造</li>
+                <li>構造的曖昧性</li>
+                <li>句構造規則</li>
+                <li>節</li>
+              </ul>
+            </ul>
+            <ul class="col">
+              <li>言語類型論</li>
+              <ul>
+                <li>形態的類型</li>
+                <li>統語的類型</li>
+                <li>文字の類型</li>
+              </ul>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <p>Q. 「ごはんを食べる」を２つに分けるとすると、どっち？</p>
+          <div class="cols">
+            <div class="col fragment answer">
+              <svg viewBox="0 0 500 200">
+                <line x1=250 y1=20 x2=150 y2=140 style="stroke:#999;stroke-width:2;"/>
+                <line x1=250 y1=20 x2=300 y2=80 style="stroke:#999;stroke-width:2;"/>
+
+                <line x1=300 y1=80 x2=250 y2=140 style="stroke:#999;stroke-width:2;"/>
+                <line x1=300 y1=80 x2=350 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+                <text x=100 y=30 text-anchor="start">a.</text>
+                <text x=150 y=180 fill="black" text-anchor="middle">ごはん</text>
+                <text x=250 y=180 fill="black" text-anchor="middle">を</text>
+                <text x=350 y=180 fill="black" text-anchor="middle">食べる</text>
+              </svg>
+            </div>
+            <div class="col"> 
+              <svg viewBox="0 0 500 200">
+                <line x1=250 y1=20 x2=150 y2=140 style="stroke:#999;stroke-width:2;"/>
+                <line x1=250 y1=20 x2=300 y2=80 style="stroke:#999;stroke-width:2;"/>
+
+                <line x1=200 y1=80 x2=250 y2=140 style="stroke:#999;stroke-width:2;"/>
+                <line x1=300 y1=80 x2=350 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+                <text x=100 y=30 text-anchor="start">b.</text>
+                <text x=150 y=180 fill="black" text-anchor="middle">ごはん</text>
+                <text x=250 y=180 fill="black" text-anchor="middle">を</text>
+                <text x=350 y=180 fill="black" text-anchor="middle">食べる</text>
+              </svg>
+            </div>
+          </div>
+          <div class="box">
+            <p>何を食べるの？$\rightarrow$ <span class=grammatical>ごはん。</span>／<span class=grammatical>ごはんを。</span></p>
+            <p>ごはんをどうするの？$\rightarrow$ <span class=grammatical>食べる。</span>／<span class=ungrammatical>を食べる。</span></p>
+          </div>
+          <div class="box">
+            <p><span class=grammatical>パン、そしてごはんを食べる。</span>／<span class=grammatical>パンを、そしてごはんを食べる。</span></p>
+            <p><span class=grammatical>ごはんを作り、そして食べる。</span>／<span class=ungrammatical>ごはんを作り、そしてを食べる。</span></p>
+          </div>
+        </section>
+
+        <section>
+          <h2>構造的曖昧性</h2>
+          <p><span class="highlight">構造的曖昧性</span>：２つの解釈が可能 ＝ ２つの頭語構造が仮定できる</p>
+          <div class="cols">
+            <svg class="col" viewBox="0 0 500 200">
+              <line x1=250 y1=20 x2=100 y2=140 style="stroke:#999;stroke-width:2;"/>
+              <line x1=250 y1=20 x2=400 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <line x1=300 y1=60 x2=200 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <line x1=250 y1=100 x2=300 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <text x=50 y=30 text-anchor="start">a.</text>
+              <text x=100 y=170 fill="black" font-size=0.7em text-anchor="middle">美しい</text>
+              <text x=200 y=170 fill="black" font-size=0.7em text-anchor="middle">アルプス</text>
+              <text x=300 y=170 fill="black" font-size=0.7em text-anchor="middle">の</text>
+              <text x=400 y=170 fill="black" font-size=0.7em text-anchor="middle">少女</text>
+            </svg>
+            <svg class="col" viewBox="0 0 500 200">
+              <line x1=250 y1=20 x2=100 y2=140 style="stroke:#999;stroke-width:2;"/>
+              <line x1=250 y1=20 x2=400 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <line x1=200 y1=60 x2=300 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <line x1=150 y1=100 x2=200 y2=140 style="stroke:#999;stroke-width:2;"/>
+
+              <text x=50 y=30 text-anchor="start">b.</text>
+              <text x=100 y=170 fill="black" font-size=0.7em text-anchor="middle">美しい</text>
+              <text x=200 y=170 fill="black" font-size=0.7em text-anchor="middle">アルプス</text>
+              <text x=300 y=170 fill="black" font-size=0.7em text-anchor="middle">の</text>
+              <text x=400 y=170 fill="black" font-size=0.7em text-anchor="middle">少女</text>
+            </svg>
+          </div>
+        </section>
+
+        <section>
+          <h2>句構造規則</h2>
+          <div class="cols">
+            <img class="col" src="./images/psr.png">
+            <div class="col">
+              <p>この文は次のような<span class="highlight">句構造規則</span>で<br>形成されている</p>
+              <hr>
+              <div style="text-align:center">
+                <p>S $\rightarrow$ PP VP</p>
+                <p>PP $\rightarrow$ N P</p>
+                <p>VP $\rightarrow$ PP V</p>
+                <p>VP $\rightarrow$ PP VP</p>
+              </div>
+            </div>
+          </div>
+          <p class="rightarrow">文を産出するために必要な語の組み合わせの規則（＝文法）を<br>最小限に書き表せる</p>
+        </section>
+
+        <section>
+          <h2>句構造規則</h2>
+          <p class="title">日本語と英語の文法の違い</p>
+          <p>
+            日本語：<span class="box">VP $\rightarrow$ PP$\;$V</span><span class="box">PP $\rightarrow$ N$\;$P</span>
+            <span class="rightarrow"><span class="highlight">主要部後置型</span></span>
+          </p>
+          <p>
+            英語：<span class="box">VP $\rightarrow$ V$\;$NP</span><span class="box">PP $\rightarrow$ P$\;$NP</span>
+            <span class="rightarrow"><span class="highlight">主要部前置型</span></span>
+          </p>
+          <p class="rightarrow">句を構成する主要な要素が、日本語では後ろに、英語では前にくる</p>
+        </section>
+
+        <section>
+          <h2>節</h2>
+          <p><span class="highlight">節</span>：主語と述語からなる単位。一つの節からなる文を単文、複数の節からなる文を複文と呼ぶ。</p>
+          <div class="cols">
+            <img src="./images/clause.png" class="col">
+            <div class="col">
+              <p><span class="highlight">主節</span>：文の中で最も中心的な節（普通、文末に位置する）</p>
+              <p><span class="highlight">従属節</span>：主節以外の節</p>
+              <p><span class="highlight">連体節</span>：名詞（体言）を修飾する節<br>例：［この小説を書いた］作家</p>
+              <p><span class="highlight">連用節</span>：述語（用言）を修飾する節<br>例：［時間があれば］出席する</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>言語類型論</h2>
+          <p class="title">形態的な類型</p>
+            <p><span class="highlight">膠着語</span>：実質的な意味を持つ語の語幹に接辞がつくという構造を持ち、その切れ目がはっきりしている言語<br>例：日本語、韓国語、モンゴル語、トルコ語など</li>
+            <p><span class="highlight">屈折語</span>：語そのものが変化することによって示され、その境界がはっきりしない言語<br>例：ラテン語、ギリシャ語など</li>
+            <p><span class="highlight">孤立語</span>：後が語形変化を持たない言語<br>例：中国語など</li>
+        </section>
+
+        <section>
+          <p class="title">格の表し方</p>
+          <p>日本語（膠着語）：名詞に助詞をつけることで表す（私が、私を、彼が、彼を）</p>
+          <p>英語（屈折語）：語（形態素）そのものが変化することで表す（I、me、he、him）</p>
+          <p>中国語（孤立語）：語形は変化しない（我、我、他、他）<br><span class="rightarrow">語順で格を表す（SVO言語なので、動詞の前後で格がわかる）</span></p>
+          <p class="title">時制の表し方</p>
+          <p>日本語（膠着語）：語幹に語尾をつけることで表す（行く、行った）</p>
+          <p>英語（屈折語）：語（形態素）そのものが変化することで表す（go、went）</p>
+          <p>中国語（孤立語）：語形は変化しない（去、去）</p>
+          <p class="box">１つの言語の中でも他の類型の性質を持っている場合があるので、全てがその特徴に当てはまるわけではない<br>中国語で「〜の」は「〜的」と書くのは膠着語的な性質</p>
+        </section>
+
+        <section>
+          <p class="title">統語的な類型</p>
+        </section>
+
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/zoom/zoom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/search/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@latest/plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        hash: true,
+        controls: false,
+        progress: true,
+        center: true,
+        plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealMath, RevealHighlight ],
+      });
+    </script>
+  </body>
+</html>

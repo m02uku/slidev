@@ -1,9 +1,13 @@
 ---
-title: 国試対策
-subtitle: 言語学②
-format: clean-revealjs
+title: 国試対策＜言語学②＞
+subtitle: 形態素・述語
+format: 
+  clean-revealjs:
+    theme:
+      - custom.scss
 ---
 
+## {visibility="hidden"}
 <!-- markdownlint-disable -->
 
 ## キーワード
@@ -11,35 +15,214 @@ format: clean-revealjs
 :::: {.columns}
 ::: {.column}
 * 形態素
-  + 自由形態素
-  + 拘束形態素
-  + 異形態
+  * 自由形態素
+  * 拘束形態素
+  * 異形態
 :::
 ::: {.column}
 * 述語
-  + 項
-    <!-- + 自動詞 -->
-    <!-- + 他動詞 -->
-    <!-- + 子音語幹動詞 -->
-    <!-- + 母音語幹動詞 -->
-  + 使役
-  + 受身
-  + 使役
-  + アスペクト
-  + テンス
-  + モダリティ
+  * 項
+    <!-- * 自動詞 -->
+    <!-- * 他動詞 -->
+    <!-- * 子音語幹動詞 -->
+    <!-- * 母音語幹動詞 -->
+  * ヴォイス
+  * アスペクト
+  * テンス
+  * モダリティ
 :::
 ::::
 
 ## 形態素
+### それ自体で意味を担うことのできる最小単位 {.fragment}
 
+::: {.fragment}
+![](./images/morpheme1.png){style="width:100%; fig-align:center;"}
+:::
+
+## 形態素
 ### それ自体で意味を担うことのできる最小単位
 
-* [自由形態素]{.bg style="--col: #fff700"}: 単独で語を形成できる形態素
-  + 例: 太郎、りんご、もっと、しっかり
-* [拘束形態素]{.bg style="--col: #fff700"}: 単独では語を形成できない形態素
-  + 例: は、が、を、（「食べた」の）食べ、た、（「美しい」の）美し、い
+::: {.incremental}
+* [自由形態素]{.bg style="--col:#ffff00"}：単独で語を形成できる形態素（＝自立語）
+  * 例：太郎、りんご、もっと、しっかり
+* [拘束形態素]{.bg style="--col:#ffff00"}：単独では語を形成できない形態素（＝付属語）
+  * 例：は、が、を、（「食べた」の）食べ、た、（「美しい」の）美し、い
+  ![](./images/morpheme2.png){.fragment style="width:100%; fig-align:center;"}
+:::
 
-* [異形態]{.bg style="--col: #fff700"}: 元の形とは違う形で出てくる形態素
-  + 意味は同じで音が少しだけ異なる
-  + 漢字の音読みと訓読みは異形態ではなく、そもそも別の形態素とみなす
+## 形態素
+### それ自体で意味を担うことのできる最小単位
+
+::: {.incremental}
+* [異形態]{.bg style="--col:#ffff00"}：元の形とは違う形で出てくる形態素
+  * 意味は同じで音が少しだけ異なる
+  ![](./images/allomorph.png){.fragment style="width:100%; fig-align:center;"}
+  * ただし、漢字の訓読みと音読みは異形態ではなく、そもそも別の形態素とみなす
+  * 「お[酒]{.fg style="--col:#4444ff"}」と「[酒]{.fg style="--col:#4444ff"}税（しゅぜい）」は[異形態ではない]{.fg style="--col:#ff4444"}
+:::
+
+## 述語と項
+
+::: {.incremental}
+* [述語]{.bg style="--col:#ffff00"}：主語に対して属性や行為などを表す文の部分
+* [項]{.bg style="--col:#ffff00"}：述語に必要な要素
+  ![](./images/predicate_argument.png){.frangment style="width:80%; fig-align:center;"}
+:::
+
+## 述語と項
+
+::: {.fragment}
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="border: 1px solid #000; padding: 8px;">1 項動詞</td>
+    <td style="border: 1px solid #000; padding: 8px;">〜ガ</td>
+    <td style="border: 1px solid #000; padding: 8px;">降る、光る、冷える、吹く</td>
+    <td style="border: 1px solid #000; padding: 8px;">$\rightarrow$ [自動詞]{.fragment}</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #000; padding: 8px;">2 項動詞</td>
+    <td style="border: 1px solid #000; padding: 8px;">
+    〜ガ〜ヲ
+    <br>〜ガ〜ニ
+    <br>〜ガ〜ト
+    </td>
+    <td style="border: 1px solid #000; padding: 8px;">
+    助ける、殴る、食べる
+    <br>かみつく、ぶつかる、甘える
+    <br>けんかする、戦う、結婚する
+    </td>
+    <td rowspan="2" style="border: 1px solid #000; padding: 8px; vertical-align: middle;">$\rightarrow$ [他動詞]{.fragment}</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #000; padding: 8px;">3 項動詞</td>
+    <td style="border: 1px solid #000; padding: 8px;">〜ガ〜ニ〜ヲ</td>
+    <td style="border: 1px solid #000; padding: 8px;">教える、紹介する、与える、送る</td>
+  </tr>
+</table>
+:::
+
+::: {.incremental}
+- 例：動詞「食べる」の場合
+
+  :::: {.fragment}
+  | A：「今日、私、食べたよ」[（＝私が[____を]{style="color:silver;"}食べた）]{.fragment}
+  | B：「…何を？？」
+  ::::
+
+- 「食べる」は 2 項動詞であり、「〜ガ」（主語）と「〜ヲ」（対象）の 2 つの項を必要とする
+- 「何を」にあたる要素は[述語]{.fg style="--col:#ff4444"}「食べる」の[項]{.fg style="--col:#ff4444"}であるため、省略すると文が不完全になる
+- 省略可能な要素は、文脈から明らかな場合に限られる
+:::
+
+## 述語の要素
+
+#### [ヴォイス（態）]{.bg style="--col:#ffff00" .fragment fragment-index=0}
+[どの／だれの視点からの動作かを表す。動詞の形が変わり、項の格が変化する。]{.fragment fragment-index=1}
+
+::: {.fragment fragment-index=2}
+- [[受身]{.fg style="--col:#ff4444"}]{.fragment fragment-index=2}
+
+  :::: {.incremental}
+  - 太郎[が]{.underline}　花子[を]{.underline}　ほめた
+  - 花子[が]{.underline}　太郎[に]{.underline}　ほめ[**られ**]{.underline}た
+  ::::
+- [[使役]{.fg style="--col:#ff4444"}]{.fragment fragment-index=2}
+
+  :::: {.incremental}
+  - 太郎[が]{.underline}　泣いた
+  - 次郎[が]{.underline}　太郎[を]{.underline}　泣か[**せ**]{.underline}た
+  ::::
+:::
+
+::: {.fragment}
+- その他のヴォイス：可能、自発、尊敬
+:::
+
+## 述語の要素
+
+#### [アスペクト（相）]{.bg style="--col:#ffff00" .fragment fragment-index=0}
+[動作・出来事の時間的性質、その捉え方に関する性質
+<br>$\rightarrow$「〜（し）ている」]{.fragment fragment-index=0}
+
+::: {.fragment fragment-index=1}
+- [[動作の進行]{.fg style="--col:#ff4444"}]{.fragment fragment-index=2}
+
+  :::: {.fragment fragment-index=1}
+  | あ、雨が降っ[**て（い）る**]{.underline}。
+  | 公園でランナーが走っ[**ている**]{.underline}。
+  ::::
+- [[変化の結果の状態]{.fg style="--col:#ff4444"}]{.fragment fragment-index=2}
+
+  :::: {.fragment fragment-index=1}
+  | 雪が 10 cm 積もっ[**ている**]{.underline}。
+  ::::
+:::
+
+## 述語の要素
+
+#### [テンス（時制）]{.bg style="--col:#ffff00" .fragment fragment-index=0}
+[ある事態が起きたのが過去・現在・未来のどの時かを表す性質]{.fragment fragment-index=0}
+
+::: {.fragment fragment-index=1}
+[日本語のテンス]{.fragment fragment-index=1}
+
+- [[非過去形]{.fg style="--col:#ff4444"} $\rightarrow$「ル系」とも呼ぶ]{.fragment fragment-index=2}
+
+  :::: {.fragment}
+  | 例：食べる、見る、書く
+  ::::
+- [[過去形]{.fg style="--col:#ff4444"} $\rightarrow$「タ系」とも呼ぶ]{.fragment fragment-index=2}
+
+  :::: {.fragment}
+  | 例：食べた、見た、書いた
+  ::::
+:::
+
+## 述語の要素
+
+### 過去形の 2 つの用法
+
+::: {.fragment}
+- 用法 1：[過去の状態・動作]{.fg style="--col:#ff4444"}を表す
+
+  :::: {.incremental}
+  - ここに本があっ[**た**]{.underline}[（過去の状態）]{.fg style="--col:#4444ff"}
+  - 昨日、友達とご飯を食べ[**た**]{.underline}[（過去の動作）]{.fg style="--col:#4444ff"}
+  ::::
+- 用法 2：[話し手の気持ち（発見・気づき・命令・確認）]{.fg style="--col:#ff4444"}を表す
+
+  :::: {.incremental}
+  - あ、ここにあっ[**た**]{.underline}[（発見）]{.fg style="--col:#4444ff"}
+  - そういえば明日は先生の誕生日だっ[**た**]{.underline}[（気づき）]{.fg style="--col:#4444ff"}
+  - さあ、用のない人は帰っ[**た**]{.underline}帰っ[**た**]{.underline}[（命令）]{.fg style="--col:#4444ff"}
+  - 明日の会議、6 時からだっ[**た**]{.underline}っけ[（確認）]{.fg style="--col:#4444ff"}
+  ::::
+:::
+
+## 述語の要素
+
+#### [モダリティ（法）]{.bg style="--col:#ffff00" .fragment fragment-index=0}
+[事実に対する話し手の捉え方・述べ方を表す性質]{.fragment fragment-index=0}
+<br>
+![](./images/modality.png){.fragment style="width:80%; fig-align:center;"}
+<p class=fragment style="border:solid #4444ff; padding:0.5rem;">
+「ご飯を食べる」という事実（命題）に対する[話し手の考え（態度）]{.fg style="--col:#ff4444"}が表れる
+</p>
+
+## 述語の要素
+
+<br>
+
+日本語でこれらの要素が現れる順番は決まっている
+
+<br>
+
+::: {style="text-align:center;"}
+太郎は花子に褒め　[られ]{.underline}　[てい]{.underline}　[た]{.underline}　[のだろう]{.underline}
+:::
+$\qquad\qquad\qquad\qquad\qquad\qquad\qquad$[態]{.fragment .fg style="--col:#4444ff"}
+$\qquad\!\!$[相]{.fragment .fg style="--col:#4444ff"}
+$\quad\!\!$[時制]{.fragment .fg style="--col:#4444ff"}
+$\ $[モダリティ]{.fragment .fg style="--col:#4444ff"}
+

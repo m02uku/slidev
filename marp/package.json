@@ -1,0 +1,8 @@
+{
+  "marp": {
+    "inputDir": "./slides",
+    "output": "./public",
+    "themeSet": "./themes"
+  }
+}
+

@@ -1,0 +1,136 @@
+/* Layout */
+.reveal .slides {
+  overflow: hidden;
+  text-align: left;
+  font-size: 0.7em;
+}
+
+svg {
+  width: auto;
+  height: auto;
+  padding: 0.5em;
+  /* border: 4px solid black; */
+}
+
+section .cols svg line.highlight {
+  stroke: #F00;
+  stroke-width: 3;
+}
+
+/* Heading prefixes */
+h1::before,
+h2::before,
+h3::before,
+h4::before {
+  font-size: 1.2em;
+  color: #b4b4b4;
+  padding-right: 0.25em;
+}
+h1::before {
+  content: "# ";
+}
+h2::before {
+  content: "## ";
+}
+h3::before {
+  content: "### ";
+}
+h4::before {
+  content: "#### ";
+}
+
+/* Inline circled element */
+.circled {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.9em;
+  height: 0.9em;
+  font-size: 0.9;
+  border-radius: 50%;
+  border: 0.1em solid currentColor;
+  line-height: 1;
+  transform: translateY(-0.1em);
+  margin: 0 0.05em;
+  vertical-align: middle;
+}
+
+.cols {
+  display: flex;
+  gap: 2em;
+}
+
+.col {
+  flex: 1;
+}
+
+.grammatical::before,
+.ungrammatical::before {
+  line-height: 1;
+  margin-right: 0.25em;
+}
+
+.grammatical::before {
+  content: "○";
+  color: red;
+}
+
+.ungrammatical::before {
+  content: "×";
+  color: blue;
+}
+
+.box {
+  border: 4px solid #AAA;
+  padding: 0 0.5em;
+  margin: 0.5em;
+}
+
+.reveal .slides section .fragment.answer {
+  opacity: unset;
+  visibility: unset;
+}
+
+.reveal .slides section .fragment.answer.visible {
+  border: 4px solid red;
+}
+
+.highlight {
+  background-color: #ff0;
+}
+
+img {
+  width: auto;
+}
+
+.rightarrow {
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+span.rightarrow {
+  padding-left: 0.5em;
+  text-indent: 0em;
+}
+
+.rightarrow::before {
+  content: "⇨";
+  font-size: 1.4em;
+  /* content: "右"; */
+  margin-right: 0.5em;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.2em; /* 現在の（親）font-size の 1.2倍 */
+}
+
+.title::before {
+  content: "＜";
+  margin-right: 0.25em;
+}
+
+.title::after {
+  content: "＞";
+  margin-left: 0.25em;
+}

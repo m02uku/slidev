@@ -1,0 +1,1729 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  japanese,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+
+
+\ifLuaTeX
+\usepackage[bidi=basic,provide=*]{babel}
+\else
+\usepackage[bidi=default,provide=*]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目次}
+\else
+  \newcommand\contentsname{目次}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{図一覧}
+\else
+  \newcommand\listfigurename{図一覧}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表一覧}
+\else
+  \newcommand\listtablename{表一覧}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{コード}
+\newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={言語学①},
+  pdflang={ja},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{言語学①}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+
+\subsection{キーワード}\label{ux30adux30fcux30efux30fcux30c9}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{言語学} : 言語の科学的研究
+\item
+  \textbf{言語の恣意性} : 音と意味の結びつきに必然性がないこと
+\item
+  \textbf{二重分節} : 音韻と形態の二段階構造
+\item
+  \textbf{音素} : 意味の違いをもたらす最小の音の単位
+\item
+  \textbf{異音} : 同じ音素の異なる実現形
+\item
+  \textbf{弁別的素性} : 音素を区別する音声的性質
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  \textbf{音韻規則} : 音素の変化を記述する規則
+\item
+  \textbf{最小対} : 一つの音素だけが異なる、意味の異なる語の組
+\item
+  \textbf{相補分布} : 異音が現れる環境が重ならないこと
+\item
+  \textbf{自由変異} : 同じ環境で交換可能な音の違い
+\item
+  \textbf{音節} : 発音の基本的な単位
+\item
+  \textbf{モーラ} : 日本語のリズムの単位（拍）
+\end{enumerate}
+
+\subsection{言語学}\label{ux8a00ux8a9eux5b66}
+
+\begin{quote}
+\textbf{言語学と語学の違い}
+\end{quote}
+
+\textbf{言語学}
+
+\begin{itemize}
+\tightlist
+\item
+  言語の仕組みを\ul{研究}
+\item
+  理論的・分析的
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「日本語の文法構造」
+
+\end{tcolorbox}
+
+\textbf{語学}
+
+\begin{itemize}
+\tightlist
+\item
+  言語の使用を\ul{学習}
+\item
+  実践的・技能的
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「日本語会話の習得」
+
+\end{tcolorbox}
+
+\begin{quote}
+\textbf{なぜ「言語学」が言語聴覚士に必要なのか？}
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  言語障害の理解には言語の構造理解が不可欠
+\item
+  評価・訓練の理論的基盤となる知識を得る
+\end{itemize}
+
+\subsection{言語記号の特性}\label{ux8a00ux8a9eux8a18ux53f7ux306eux7279ux6027}
+
+\begin{quote}
+\textbf{ソシュールの言語観}
+\end{quote}
+
+\textbf{恣意性}
+
+\begin{itemize}
+\tightlist
+\item
+  音と意味の結びつきには必然性がない
+\item
+  同じ意味でも言語によって音が異なる
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「🐶」= /inu/（日）= /dog/（英）
+
+\end{tcolorbox}
+
+\textbf{線状性}
+
+\begin{itemize}
+\tightlist
+\item
+  音声は時間軸上に一次元的に配列される
+\item
+  同時に複数の語（音）を発音できない
+\item
+  文は一定の順序で配列される
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{重要}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  言語の恣意性は、\ul{言語が社会的な約束事である}ことを示す
+\end{itemize}
+
+\end{tcolorbox}
+
+シニフィアンを「記号表現」や「能記」{[}1{]}、シニフィエを「記号内容」や「所記」などと訳す
+
+\subsection{二重分節}\label{ux4e8cux91cdux5206ux7bc0}
+
+\textbf{言語の経済性を支える仕組み}
+
+文\(\qquad\)---\(\qquad\)単語\(\qquad\)---\(\qquad\)形態素\(\qquad\)---\(\qquad\)音素
+
+\(\qquad\qquad\qquad\quad\)(第一次分節)\(\qquad\qquad\quad\quad\)(第二次分節)
+
+\textbf{第一次分節（形態的分節）}
+
+\begin{itemize}
+\tightlist
+\item
+  意味を持つ最小単位に分ける
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「読まない」\(\rightarrow\)「読ま」+「ない」
+\item
+  形態素レベルの分割
+\end{itemize}
+
+\end{tcolorbox}
+
+\textbf{第二次分節（音韻的分節）}
+
+\begin{itemize}
+\tightlist
+\item
+  意味を持たない音の単位に分ける
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「ネコ」\(\rightarrow\)/n/+/e/+/k/+/o/
+\item
+  音素レベルの分割
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{音素}\label{ux97f3ux7d20}
+
+\textbf{意味の違いをもたらす最小の音の単位}
+
+\begin{quote}
+\textbf{音素を見つける方法}
+\end{quote}
+
+\textbf{最小対（ミニマルペア）}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{日本語の例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「サカナ」vs 「タカナ」
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /s/ と /t/ は異なる音素
+  \end{itemize}
+\item
+  「カキ」vs 「カギ」
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /k/ と /g/ は異なる音素
+  \end{itemize}
+\item
+  cf.「ハシ（橋）」vs 「ハシ（箸）」
+
+  \begin{itemize}
+  \tightlist
+  \item
+    アクセントも音韻的要素
+  \end{itemize}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{英語の例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  ``bat'' vs ``pat''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /b/ と /p/ は異なる音素
+  \end{itemize}
+\item
+  ``ship'' vs ``sheep''
+
+  \begin{itemize}
+  \tightlist
+  \item
+    /ɪ/ と /iː/ は異なる音素
+  \end{itemize}
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{異音}\label{ux7570ux97f3}
+
+\textbf{同じ音素の異なる音声的実現形}
+
+\textbf{相補分布}
+
+異音が現れる環境が重ならない
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例：日本語の /g/}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+語頭 → {[}g{]}（破裂音）：「学校」{[}gakkoː{]} 語中 →
+{[}ŋ{]}（鼻濁音）：「午後」{[}goŋo{]}
+
+\end{tcolorbox}
+
+\textbf{自由変異}
+
+同じ環境で交換可能な音の違い
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「数学」の「す」→ {[}sɯ{]} (非円唇) または {[}su{]} (円唇)
+
+\end{tcolorbox}
+
+\subsection{弁別的素性}\label{ux5f01ux5225ux7684ux7d20ux6027}
+
+\textbf{音素を区別する音声的性質}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+特徴 & 例：日本語 & 対立 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{声帯振動} & /k/ vs /g/ & 無声 vs 有声 \\
+\textbf{調音位置} & /t/ vs /k/ & 歯茎 vs 軟口蓋 \\
+\textbf{調音方法} & /t/ vs /s/ & 破裂 vs 摩擦 \\
+\textbf{鼻音性} & /ŋ/ vs /g/ & 鼻音 vs 口音 \\
+\end{longtable}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{重要}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+とある素性が弁別的であるかは言語によって異なる
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{英語：}帯気性の有無は「余剰的素性」（ミニマルペアがない）
+\item
+  \textbf{クメール語：}帯気性の有無で意味の変わる単語がある（ミニマルペアがある）
+\end{itemize}
+
+\end{tcolorbox}
+
+\subsection{音韻規則}\label{ux97f3ux97fbux898fux5247}
+
+\textbf{音素の体系的な変化を記述}
+
+\textbf{同化}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{順行同化}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「読んだ」/jom+ta/\(~\rightarrow\){[}jonda{]}
+：相互に同化＝順行も逆行も起こっている \(~\rightarrow\)/n/ が後続の /b/
+の影響で {[}m{]} に
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{逆行同化}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「三本」/saɴboɴ/ → {[}samboɴ{]} \(~\rightarrow\) /n/ が後続の /b/
+の影響で {[}m{]} に
+
+\end{tcolorbox}
+
+\textbf{異化}
+
+連続する類似音が異なる音に変化
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{ライマンの法則}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「青髭」/ao+hige/ → {[}aohige{]}, *{[}aobige{]} \(~\rightarrow\)
+有声音の連続を避けるため、連濁が阻止された
+
+\end{tcolorbox}
+
+\subsection{音韻規則}\label{ux97f3ux97fbux898fux5247-1}
+
+\textbf{音素の体系的な変化を記述}
+
+\textbf{脱落}
+
+特定の環境で音が消失
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「です」{[}des{]} （/u/ の脱落）
+
+\end{tcolorbox}
+
+\textbf{挿入}
+
+音の追加
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「小雨」→「こさめ」（/s/ の挿入） 「春雨」→「はるさめ」（/s/ の挿入）
+その他、外来語への母音挿入など
+
+\end{tcolorbox}
+
+地t͡ɕi図、土
+
+\subsection{音節}\label{ux97f3ux7bc0}
+
+\textbf{発音の自然な単位}
+
+\textbf{日本語の音節構造}
+
+(C) (G) V (C)
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{凡例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+C = 子音, G = 渡り音, V = 母音
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「桜」= /sa.ku.ra/（３音節）
+
+\end{tcolorbox}
+
+\textbf{音節構造の例}
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{./images/syllable_structure.png}}
+
+}
+
+\caption{\url{https://user.keio.ac.jp/~rhotta/hellog/2019-06-29-1.html}より引用}
+
+\end{figure}%
+
+\subsection{モーラ}\label{ux30e2ux30fcux30e9}
+
+\textbf{日本語のリズムの単位}
+
+\begin{itemize}
+\tightlist
+\item
+  時間的に等しい長さ
+\item
+  日本語：モーラ言語
+\item
+  英語：音節言語
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例：「学校』}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+音節：gak.ko（２音節） モーラ：が.っ.こ.う（４モーラ）
+
+\end{tcolorbox}
+
+\vspace{5cm}
+
+\section{休憩}\label{ux4f11ux61a9}
+
+後半は口頭試問
+
+\subsection{}\label{section}
+
+{問題} 次のうち、\textbf{言語の恣意性}の説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音と意味の結びつきには必然性がある
+\item
+  {音と意味の結びつきには必然性がない}
+\item
+  すべての言語で同じ音は同じ意味を持つ
+\item
+  音声記号は世界共通である
+\item
+  言語は本能的に獲得される
+\end{enumerate}
+
+\textbf{言語の恣意性}：音と意味の結びつきが恣意的であり、必然性がないという原理。
+
+\begin{itemize}
+\tightlist
+\item
+  同じ意味でも言語によって異なる音形を持つ
+
+  \begin{itemize}
+  \tightlist
+  \item
+    「犬」= /inu/（日本語）、/dog/（英語）、/chien/（フランス語）
+  \end{itemize}
+\item
+  これは言語が\textbf{社会的な約束事}であることを示す
+\item
+  ソシュールが提唱した言語学の基本原理
+\end{itemize}
+
+\textbf{よくある誤解：}
+擬音語（オノマトペ）は音と意味に関連があるように見えるが、これも言語によって異なる（日本語「ワンワン」vs
+英語「bow-wow」）
+
+\begin{itemize}
+\tightlist
+\item
+  ソシュールの『一般言語学講義』が出典
+\item
+  恣意性は言語記号の本質的特徴の一つ
+\item
+  ら抜き言葉：可能の助動詞「（ら）れる」を「-areru」とすると、
+\end{itemize}
+
+\subsection{}\label{section-1}
+
+{問題}
+「食べられない」という語を二重分節の観点から分析した場合、第二次分節の結果として最も適切なものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  {/t/ + /a/ + /b/ + /e/ + /r/ + /a/ + /r/ + /e/ + /n/ + /a/ + /i/}
+\item
+  食べ + られ + ない
+\item
+  食べられ + ない
+\item
+  食べら + れない
+\item
+  分節できない
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{第一次分節}（＝単語または形態素）
+
+  \begin{itemize}
+  \tightlist
+  \item
+    「食べられない」→「食べ」+「られ」+「ない」
+  \end{itemize}
+\item
+  \textbf{第二次分節}（＝音素）
+
+  \begin{itemize}
+  \tightlist
+  \item
+    「話せない」→ /h/ + /a/ + /n/ + /a/ + /s/ + /e/ + /n/ + /a/ + /i/
+  \end{itemize}
+\item
+  二重分節により、少数の要素で無数の意味を表現できる（言語の経済性）
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  マルティネの用語
+
+  \begin{itemize}
+  \tightlist
+  \item
+    第一次分節＝monème 記号素（典型的には「語」）
+  \item
+    第二次分節＝音素: 弁別的な最小単位
+  \end{itemize}
+\item
+  言語の重要な特徴
+\item
+  言語の経済性:
+  最小限の労力（発音や文法構造）で最大限の情報（意味）を伝達しようとする言語の働き・原理
+\end{itemize}
+
+\subsection{}\label{section-2}
+
+{問題}
+次のうち、日本語における最小対（ミニマルペア）の例として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  「橋」と「箸」
+\item
+  「雨」と「飴」
+\item
+  「サカナ」と「タカナ」
+\item
+  「カキ」と「カギ」
+\item
+  {上記すべて}
+\end{enumerate}
+
+\textbf{最小対}とは、一つの音素（または韻律的要素）だけが異なる語の組
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  「橋」{[}hashi'{]} と「箸」{[}ha'shi{]} {アクセントの違い}
+\item
+  「雨」{[}a'me{]} と「飴」{[}ame{]} {アクセントの違い}
+\item
+  「サカナ」/sakana/ と「タカナ」/takana/ {音素 /s/ と /t/ の対立}
+\item
+  「カキ」/kaki/ と「カギ」/kagi/ {音素 /k/ と /g/ の対立（無声 vs
+  有声）}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  最小対は音素を特定する基本的手法
+\item
+  アクセントも日本語では音韻的に重要
+\end{itemize}
+
+\subsection{}\label{section-3}
+
+{問題} 日本語東京方言（標準語）における「ガ行」の子音 /g/
+について、次のうち正しい説明はどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  通時的に、すべての位置で常に破裂音{[}g{]}として発音される
+\item
+  {語頭では破裂音{[}g{]}、語中では鼻音{[}ŋ{]}となることがある}
+\item
+  語頭でも語中でも常に鼻音{[}ŋ{]}として発音される
+\item
+  /g/と/ŋ/は日本語で異なる音素である
+\item
+  位置による発音の違いはない
+\end{enumerate}
+
+日本語の /g/ は\textbf{相補分布}にある異音を持つ：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{語頭}：破裂音 {[}g{]}
+  {例：「学校」{[}gakkoː{]}、「元気」{[}geŋki{]}}
+\item
+  \textbf{語中}：鼻音 {[}ŋ{]}（鼻濁音）
+  {例：「午後」{[}goŋo{]}、「刺激」{[}ɕiŋeki{]}}
+\item
+  相補分布 = 異音が現れる環境が重ならない
+\item
+  {[}g{]}と{[}ŋ{]}は同一音素 /g/ の異音
+\item
+  ただし、現代日本語では鼻濁音の使用が減少傾向
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  東京方言などで観察される現象
+\item
+  若年層では鼻濁音が消失しつつある
+\item
+  ガ行鼻濁音は、東北方言では語中のガ行音素（濁音音素）/ɡ/そのものとして現れる。東北方言では、カ行（清音）子音/k/は語頭では{[}k{]}だが、ダ行と同様に、語中では有声音化して{[}ɡ{]}となるため、正真正銘のガ行子音（濁音）/ɡ/は、語中ではすべて鼻濁音化して{[}ŋ{]}と発音され、清濁の弁別が保たれることになる。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    つまり、東北方言では、基底では/k/と/g/は弁別的だが、表層では{[}k{]}{[}g{]}と{[}ŋ{]}が弁別的
+  \end{itemize}
+\end{itemize}
+
+\subsection{}\label{section-4}
+
+{問題}
+「新聞」という語が{[}ɕimbuɴ{]}のように発音される現象を説明する音韻規則として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  異化
+\item
+  {同化}
+\item
+  脱落
+\item
+  挿入
+\item
+  メタセシス（音位転換）
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  /ɴ/ → {[}m{]} の変化 {/ɕiɴ+buɴ/ → {[}ɕimbuɴ{]}}
+\item
+  後続の /b/（両唇音）の影響で /n/（歯茎鼻音）が
+  {[}m{]}（両唇鼻音）に変化
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{同化の種類}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{順行同化}：前の音の影響を受ける
+\item
+  \textbf{逆行同化}：後ろの音の影響を受ける
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  調音の労力を減らす自然な変化
+\item
+  日本語では一般的な音韻現象
+\item
+  メタセシス：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    新しい: アラタシ → アタラシイ
+  \item
+    山茶花: サンザカ → サザンカ
+  \item
+    舌鼓: シタツヅミ → シタヅツミ
+  \item
+    秋葉原: アキバハラ → アキハバラ
+  \end{itemize}
+\end{itemize}
+
+\subsection{}\label{section-5}
+
+{問題}
+「学校」という語の音節数とモーラ数の組み合わせとして正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音節2、モーラ2
+\item
+  音節2、モーラ3
+\item
+  {音節2、モーラ4}
+\item
+  音節3、モーラ4
+\item
+  音節4、モーラ4
+\end{enumerate}
+
+「学校」/gakkoː/
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{音節数}：2音節 {gak.koː}
+\item
+  \textbf{モーラ数}：4モーラ {が・っ・こ・う}
+\item
+  促音「っ」、長音「ー」、撥音「ん」はそれぞれ1モーラ
+\item
+  日本語はモーラ言語（各モーラが等時性を持つ）
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  日本語がモーラ言語というのは、音声的分析によって示される
+\item
+  俳句の五七五もモーラ単位（モーラがリズム単位＝モーラが等時性を持つ）
+\end{itemize}
+
+\subsection{}\label{section-6}
+
+{問題} 音素の定義として最も適切なものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音声の物理的性質の最小単位
+\item
+  {意味の違いをもたらす最小の音の単位}
+\item
+  意味を持つ最小の単位
+\item
+  聞き分けられる最小の音の単位
+\item
+  文字で表される最小の音の単位
+\end{enumerate}
+
+\textbf{音素}の定義：
+
+\begin{itemize}
+\tightlist
+\item
+  意味の違いをもたらす\textbf{最小の音の単位} {（弁別的な最小の単位）}
+\item
+  音声の\textbf{機能的な単位}（物理的な単位ではない）
+\item
+  最小対によって特定できる
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「サカナ」と「タカナ」→ /s/と/t/は異なる音素
+\item
+  「カキ」と「カギ」→ /k/と/g/は異なる音素
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  音素は抽象的な単位
+\item
+  音声学の「音」と音韻論の「音素」は異なる
+\end{itemize}
+
+\subsection{}\label{section-7}
+
+{問題} 異音の説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  異なる音素のこと
+\item
+  {同じ音素の異なる音声的実現形}
+\item
+  意味の異なる音のこと
+\item
+  外来語に特有の音のこと
+\item
+  方言による音の違い
+\end{enumerate}
+
+\textbf{異音}の特徴：
+
+\begin{itemize}
+\tightlist
+\item
+  同一音素の\textbf{環境による変異形} {意味の違いをもたらさない}
+\item
+  相補分布または自由変異の関係にある
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例：日本語の /t/}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  /a e o/ の前：{[}t{]}「たばこ」{[}tabako{]}
+\item
+  /i/ の前：{[}tɕ{]}「ちから」{[}tɕikara{]} {→ これらは同一音素 /t/
+  の異音}
+\item
+  /u/ の前：{[}ts{]}「つくえ」{[}tsukue{]}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  話者は通常異音の違いを意識しない
+\item
+  音韻論の重要概念
+\end{itemize}
+
+\subsection{}\label{section-8}
+
+{問題}
+次のうち、\textbf{弁別的素性}に関する説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  すべての言語で同じ特徴が弁別的である
+\item
+  {言語によって弁別的な素性は異なる}
+\item
+  弁別的素性は音素とは無関係である
+\item
+  弁別的素性は意味に関わらない
+\item
+  弁別的素性は音の高さのみを指す
+\end{enumerate}
+
+\textbf{弁別的素性：}音素を区別する音声的性質
+{言語によって何が弁別的かは異なる}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-important-color!10!white, colframe=quarto-callout-important-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{重要}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+とある素性が弁別的であるかは言語によって異なる
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{英語：}帯気性の有無は「余剰的素性」（ミニマルペアがない）
+\item
+  \textbf{クメール語：}帯気性の有無で意味の変わる単語がある（ミニマルペアがある）
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  ヤコブソンの弁別的素性理論
+\item
+  音韻体系の記述に重要
+\item
+  音素を区別する＝ミニマルペアがある
+\end{itemize}
+
+\subsection{}\label{section-9}
+
+{問題} 相補分布の説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音素が自由に交換可能な状態
+\item
+  {異音が現れる環境が重ならない状態}
+\item
+  音素が意味を区別する状態
+\item
+  音が連続して現れる状態
+\item
+  音の配列に制約がない状態
+\end{enumerate}
+
+\textbf{相補分布}の特徴：
+
+\begin{itemize}
+\tightlist
+\item
+  異なる音が現れる環境が\textbf{互いに排他的}
+\item
+  相補分布にある音は同一音素の異音 {環境によって出現が予測可能}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例：日本語の /h/}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  /a e o/ の前：{[}h{]}「はな」{[}hana{]}
+\item
+  /i/ の前：{[}ç{]}「ひと」{[}çito{]}
+  {{[}h{]}、{[}ç{]}、{[}ɸ{]}は相補分布にあり、同一音素/h/の異音}
+\item
+  /u/ の前：{[}ɸ{]}「ふね」{[}ɸɯne{]}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  異音を特定する重要な基準
+\item
+  最小対と対照的な概念
+\item
+  h: 無声正門摩擦音
+\item
+  ç: 無声硬口蓋摩擦音
+\item
+  ɸ: 無声両唇摩擦音
+\end{itemize}
+
+\subsection{}\label{section-10}
+
+{問題} 自由変異の説明として最も適切なものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音素が自由に変化すること
+\item
+  {同じ環境で交換可能な音の違い}
+\item
+  意味が変わらずに語順が変わること
+\item
+  方言による音の違い
+\item
+  音韻規則が適用されないこと
+\end{enumerate}
+
+\textbf{自由変異}の特徴：
+
+\begin{itemize}
+\tightlist
+\item
+  同じ環境で複数の音が\textbf{交換可能}
+\item
+  意味の違いをもたらさない
+\item
+  話者や発話スタイルによる変異
+\end{itemize}
+
+\textbf{相補分布}との違い：
+
+\begin{itemize}
+\tightlist
+\item
+  相補分布：環境によって決まる
+\item
+  自由変異：環境が同じでも異なる音が現れる
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「数学」の「す」→ {[}sɯ{]} または {[}su{]}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  個人差や文体差の要因
+\item
+  音韻変化の萌芽となることもある
+\end{itemize}
+
+\subsection{}\label{section-11}
+
+{問題} 音節の定義として最も適切なものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  文字の最小単位
+\item
+  {発音の自然な単位}
+\item
+  意味の最小単位
+\item
+  音素の組み合わせのすべて
+\item
+  時間的に等しい単位
+\end{enumerate}
+
+\textbf{音節}の特徴：
+
+\begin{itemize}
+\tightlist
+\item
+  発音の\textbf{自然なまとまり}
+\item
+  通常、母音を核とする
+\item
+  リズムや韻律の基本単位になりうる
+\end{itemize}
+
+\textbf{音節の構成：}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{頭子音}（onset）：音節の始まり
+\item
+  \textbf{核}（nucleus）：音節の中心
+\item
+  \textbf{尾子音}（coda）：音節の終わり
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+「桜」= /sa.ku.ra/（３音節）
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  音節は言語によって構造が異なる
+\item
+  日本語は比較的単純な音節構造
+\end{itemize}
+
+\subsection{}\label{section-12}
+
+{問題} モーラ（拍）に関する説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音節と同じ単位である
+\item
+  すべての言語に存在する単位である
+\item
+  {日本語のリズムの基本単位である}
+\item
+  母音のみで構成される
+\item
+  意味を持つ最小単位である
+\end{enumerate}
+
+\textbf{モーラ（拍）}の特徴：
+
+\begin{itemize}
+\tightlist
+\item
+  日本語の\textbf{リズム}の単位
+\item
+  時間的に等しい長さを持つ
+\item
+  日本語はモーラ言語
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例：「新聞紙」}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  音節：shin.bun.shi（3音節）
+\item
+  モーラ：し・ん・ぶ・ん・し（5モーラ） {促音、撥音、長音は特殊モーラ}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  英語は強勢言語（モーラ言語ではない）
+\item
+  俳句の五七五はモーラ単位
+\end{itemize}
+
+\subsection{}\label{section-13}
+
+{問題} 音韻規則の「脱落」の例として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  「新聞」/sinbun/ → {[}ɕimbun{]}
+\item
+  「雰囲気」→「ふいんき」
+\item
+  {「です」/desu/ → {[}des{]}}
+\item
+  「学校」/gakkou/ → {[}gakkoː{]}
+\item
+  「日本」/nihon/ → {[}nippon{]}
+\end{enumerate}
+
+\textbf{脱落：}特定の環境で音が\textbf{消失}する
+
+\begin{itemize}
+\tightlist
+\item
+  「です」：語末の/u/が脱落して{[}des{]}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{他の脱落の例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「〜ている」/-teiru/ → {[}-teru{]} {/i/の脱落、口語}
+\item
+  「すみません」/sumimasen/ → {[}suimasen{]} {/m/の脱落}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  高速発話でよく起こる
+\item
+  他の選択肢
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1: 同化
+  \item
+    2: メタセシス
+  \item
+    4: 長音化
+  \item
+    5: 音(韻)変化（歴史的）
+  \end{itemize}
+\end{itemize}
+
+\subsection{}\label{section-14}
+
+{問題} 「っ」（促音）に関する説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  音節を構成する
+\item
+  {1モーラとして数えられる}
+\item
+  2モーラとして数えられる
+\item
+  すべての子音の前に現れる
+\item
+  音素/t/として分析される
+\end{enumerate}
+
+\textbf{促音「っ」の特徴：}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{1モーラ}として数えられる
+\item
+  後続子音の\textbf{閉鎖}（つまり）を表す {音節の韻尾（coda）を形成}
+\item
+  音声的実現：後続子音と同じ調音位置での閉鎖
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  「学校」：が・っ・こ・う（4モーラ）
+\item
+  「切手」：き・っ・て（3モーラ）
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  音韻論的には特殊モーラ
+\item
+  音節末子音の一種
+\item
+  /p, t, k, s, ɕ/の前に現れる
+\item
+  有声音の前には通常現れない（「っが」は稀）
+\end{itemize}
+
+\subsection{}\label{section-15}
+
+{問題} 「ん」（撥音）に関する説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  常に{[}n{]}と発音される
+\item
+  {後続音によって調音位置が変わる}
+\item
+  母音である
+\item
+  音節の頭に立つ
+\item
+  モーラとして数えない
+\end{enumerate}
+
+\textbf{撥音「ん」の特徴：}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{1モーラ}として数えられる
+\item
+  後続音によって\textbf{異音}がある
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{異音の例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  {[}m{]}：/p, b, m/の前「新聞」{[}ɕimbɯn{]}
+\item
+  {[}n{]}：/t, d, n/の前「案内」{[}annai{]}
+\item
+  {[}ŋ{]}：/k, g/の前「銀行」{[}ɡiŋkoː{]}
+\item
+  {[}ɴ{]}：語末や母音の前「本」{[}hoɴ{]}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  撥音の実現は同化規則による
+\item
+  音節末子音（coda）
+\end{itemize}
+
+\subsection{}\label{section-16}
+
+{問題}
+次のうち、日本語で音素/r/と/l/が区別されない理由として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  日本語話者は両者を聞き分けられない
+\item
+  {日本語では両者が最小対を作らない}
+\item
+  /r/と/l/は物理的に同じ音である
+\item
+  日本語に{[}r{]}も{[}l{]}も存在しない
+\item
+  日本語では音素の区別が存在しない
+\end{enumerate}
+
+\textbf{音素の判定基準：}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{最小対}の存在が必要
+\item
+  日本語では{[}r{]}と{[}l{]}を入れ替えても意味が変わらない
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, coltitle=black, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, opacitybacktitle=0.6, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{英語の例}, arc=.35mm, colback=white, leftrule=.75mm, left=2mm, bottomrule=.15mm]
+
+\begin{itemize}
+\tightlist
+\item
+  ``right'' {[}raɪt{]} vs ``light'' {[}laɪt{]}（最小対が存在）
+  {英語では/r/と/l/は異なる音素}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  言語によって音素体系が異なる
+\item
+  第二言語習得の困難さの原因
+\end{itemize}
+
+\subsection{}\label{section-17}
+
+{問題} 日本語で音節の「核」（nucleus）として機能するものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  子音のみ
+\item
+  {母音}
+\item
+  促音
+\item
+  撥音
+\item
+  すべての音
+\end{enumerate}
+
+\textbf{音節の構造：}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{頭子音}（onset）：音節の始まり（任意）
+\item
+  \textbf{核}（nucleus）：音節の中心（\textbf{必須}）
+  {すべての音節に必ず存在する}
+\item
+  \textbf{尾子音}（coda）：音節の終わり（任意）
+\end{itemize}
+
+\textbf{核の特徴：}
+
+\begin{itemize}
+\tightlist
+\item
+  通常は\textbf{母音}が核となる
+\item
+  音節の中で最も響きが大きい
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  核は音節の必須要素
+\item
+  響度（sonority）が最も高い要素
+\end{itemize}
+
+\subsection{}\label{section-18}
+
+{問題} 「連濁」に関する説明として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  すべての複合語で起こる
+\item
+  {複合語の後部要素の語頭が濁音化する現象}
+\item
+  前部要素の語頭が濁音化する現象
+\item
+  外来語にのみ起こる
+\item
+  単語が単独で用いられるときに起こる現象
+\end{enumerate}
+
+\textbf{連濁：}
+
+\begin{itemize}
+\tightlist
+\item
+  複合語の\textbf{後部要素}の語頭無声子音が有声化
+\item
+  日本語の複合語形成に特徴的
+\end{itemize}
+
+\textbf{連濁の制約：}
+
+\begin{itemize}
+\tightlist
+\item
+  ライマンの法則：後部要素に既に濁音がある場合、連濁しない
+
+  \begin{itemize}
+  \tightlist
+  \item
+    例：「山」+「風」→「山かぜ」（*「山がぜ」）
+  \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  連濁は複雑な音韻現象
+\item
+  すべての複合語で起こるわけではない
+\end{itemize}
+
+\subsection{}\label{section-19}
+
+{問題} 次のうち、日本語の音韻制約として正しいものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  すべての子音連続が可能である
+\item
+  {語頭に撥音「ん」は立たない}
+\item
+  母音連続は不可能である
+\item
+  すべての位置で促音が可能である
+\item
+  音韻制約は存在しない
+\end{enumerate}
+
+\textbf{日本語の音韻制約：}
+
+\begin{itemize}
+\tightlist
+\item
+  語頭に撥音「ん」や促音「っ」は立たない
+\item
+  複雑な子音連続は許されない
+\item
+  (C)(G)V(C)の構造 {音節末に立てる子音は限られる（/N/, /Q/, /R/）}
+\end{itemize}
+
+\textbf{外来語での対応：}
+
+\begin{itemize}
+\tightlist
+\item
+  ``strike'' → 「ストライク」 {（母音挿入で音節構造を調整）}
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  音韻制約は言語によって異なる
+\item
+  外来語の適応でよく見られる
+\end{itemize}
+
+\textbf{例：}
+
+\begin{itemize}
+\tightlist
+\item
+  {✗「んご」（語頭の撥音は不可）}
+\item
+  {✓「りんご」（語中の撥音は可）}
+\end{itemize}
+
+\subsection{}\label{section-20}
+
+{問題} 次のうち、超分節音素（prosodic features）に含まれるものはどれか。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  /p/, /t/, /k/
+\item
+  /a/, /i/, /u/
+\item
+  {アクセント、イントネーション、リズム}
+\item
+  促音、撥音、長音
+\item
+  清音、濁音、半濁音
+\end{enumerate}
+
+\textbf{超分節音素（韻律的特徴）：}
+
+\begin{itemize}
+\tightlist
+\item
+  音節や語を\textbf{超えた}音韻的特徴
+\item
+  分節音素と対比される概念
+\end{itemize}
+
+\begin{itemize}
+\tightlist
+\item
+  超分節音素は感情表現にも関わる
+\item
+  失語症や自閉症で障害されることがある
+\end{itemize}
+
+\section{}\label{section-21}
+
+
+
+
+\end{document}

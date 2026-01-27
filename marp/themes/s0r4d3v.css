@@ -1,0 +1,134 @@
+/* @theme s0r4d3v */
+@import "default";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
+/* ===================================== */
+/* Root / Variables */
+/* ===================================== */
+:root {
+  --font-scale: 0.95em;
+  --background-color: #efece9;
+  --main-color: #3c5759;
+  --text-color: #192524;
+  --text-color-on-main-color: #efece9;
+  --highlight-color: #d0d5ce;
+  --line-height: 1.2;
+}
+/* ===================================== */
+/* Base Elements */
+/* ===================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+section {
+  color: var(--text-color);
+  background-color: var(--background-color);
+
+  font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
+  font-optical-sizing: auto;
+
+  word-break: auto-phrase;
+}
+h1 {
+  color: inherit;
+}
+/* ============================= */
+/* Title Slide */
+/* ============================= */
+section.title header {
+  display: none;
+}
+/* ===================================== */
+/* Headings / Layout */
+/* ===================================== */
+h2 {
+  position: absolute;
+  inset: 0.75rem 1.5rem auto;
+  border-bottom: 2px solid var(--text-color);
+}
+header {
+  position: absolute;
+  inset: 1.5rem 1.25rem auto auto;
+}
+/* ===================================== */
+/* Footer */
+/* ===================================== */
+footer {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.15rem 0;
+  background-color: var(--main-color);
+  color: var(--text-color-on-main-color);
+  text-align: center;
+}
+/* ===================================== */
+/* Inline elements */
+/* ===================================== */
+/* ----- Text Size & Line Spacing ----- */
+h3,
+p,
+ul,
+ol {
+  font-size: var(--font-scale);
+  line-height: var(--line-height);
+}
+h3 {
+  margin-bottom: 0.25em;
+}
+p {
+  margin-bottom: 0.2em;
+}
+ul,
+ol {
+  padding-left: 1.5em;
+}
+/* ----- Text Decoration ----- */
+mark {
+  padding-inline: 0.2em;
+  background: linear-gradient(transparent 50%, var(--highlight-color) 50%);
+  color: inherit;
+}
+/* ----- Images ----- */
+img {
+  border: 1px solid var(--text-color);
+}
+/* ===================================== */
+/* Tables */
+/* ===================================== */
+table {
+  margin: 0.5em 0;
+  font-size: var(--font-scale);
+}
+table th,
+table td {
+  border: 1px solid var(--text-color);
+}
+table thead th {
+  background-color: var(--main-color);
+  color: var(--text-color-on-main-color);
+}
+table tbody tr {
+  background-color: var(--background-color);
+}
+/* ===================================== */
+/* Custom Classes */
+/* ===================================== */
+/**
+ * Multi-column layout
+ * Usage: Wrap each column content in a <div> inside .cols container
+ * Example: <div class="cols"><div>Col 1</div><div>Col 2</div></div>
+ */
+.cols {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 1rem;
+}
+/* ===================================== */
+/* Google Icons */
+/* ===================================== */
+.material-symbols-outlined {
+  vertical-align: middle;
+}
