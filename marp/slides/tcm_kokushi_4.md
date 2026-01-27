@@ -2,7 +2,7 @@
 marp: true
 lang: ja
 theme: s0r4d3v
-header: header
+header: 国試対策＜言語学④＞
 footer: <span class="material-symbols-outlined">person</span> Sora Nageno (@s0r4d3v)
 ---
 
@@ -21,8 +21,8 @@ footer: <span class="material-symbols-outlined">person</span> Sora Nageno (@s0r4
 
 ### 語用論
 
-- 発話の構成**要素**
-  - <mark>コンテクスト</mark>
+- 発話の構成要素
+  - コンテクスト
   - 話し手の意図
   - 聞き手の解釈
 - 会話の公理
@@ -47,15 +47,14 @@ footer: <span class="material-symbols-outlined">person</span> Sora Nageno (@s0r4
 
 ## 語用論
 
-テーブル
+### Q. 下の画像で、
+1. みさえはしんちゃんに何をしてほしかった？
+2. それをしんちゃんはどのように解釈した？
+![](./images/pragmatics0.png)
 
-- test
-  - test
+---
 
-| 果物 | 価格 | 旬の季節 | おすすめ度 |
-|------|------|----------|-----------|
-| りんご | 150円 | 秋〜冬 | ⭐⭐⭐⭐⭐ |
-| みかん | 100円 | 冬 | ⭐⭐⭐⭐ |
-| いちご | 300円 | 春 | ⭐⭐⭐⭐⭐ |
-| スイカ | 800円 | 夏 | ⭐⭐⭐⭐ |
-| 桃 | 250円 | 夏 | ⭐⭐⭐⭐⭐ |
+### **語用論**：文が、使用者や文脈によって持ちうる意味を研究する分野
+- 文の意味は必ずしも形態・統語的に決まっているわけではない
+  - 文の字面上の意味を超えて作られる意味を研究する
+
